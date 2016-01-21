@@ -13,18 +13,18 @@ wbmix_sa = function(conc.base1 = 0.1, conc.base2 = 0.1,
   delta = h - oh
   alpha1 = h/(ka1 + h)
   alpha2 = h/(ka2 + h)
-  vol.acid = vol.base * 
+  volume = vol.base * 
     (conc.base1 * alpha1 + conc.base2 * alpha2 + delta)/(conc.acid - delta)
-  df = data.frame(vol.acid, ph)
-  df = df[df$vol.acid > 0 & df$vol.acid < 2 * (veq1 + veq2), ]
+  df = data.frame(volume, ph)
+  df = df[df$volume > 0 & df$volume < 2 * (veq1 + veq2), ]
   rownames(df) = 1:nrow(df)
   if (overlay == FALSE){
-    plot(df$vol.acid, df$ph, type = "l", lwd = 2,  
+    plot(df$volume, df$ph, type = "l", lwd = 2,  
          xlim = c(0, 1.5 * (veq1 + veq2)), ylim = c(0, pkw), 
          xlab = "volume of strong acid (mL)", ylab = "pH",
          xaxs = "i", yaxs = "i", ...)
   }else{
-    lines(df$vol.acid, df$ph, type = "l", lwd = 2, ...)
+    lines(df$volume, df$ph, type = "l", lwd = 2, ...)
   }
   if (eqpt == TRUE) {
     x1 = c(veq1, veq1)

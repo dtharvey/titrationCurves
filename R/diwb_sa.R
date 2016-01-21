@@ -12,18 +12,18 @@ diwb_sa = function(conc.base = 0.1, conc.acid = 0.1, pka1 = 5,
   delta = h - oh
   alpha1 = (ka1 * h)/(ka1 * ka2 + ka1 * h + h^2)
   alpha2 = h^2/(ka1 * ka2 + ka1 * h + h^2)
-  vol.acid = vol.base * 
+  volume = vol.base * 
     (conc.base * alpha1 + 2 * conc.base * alpha2 + delta)/(conc.acid - delta)
-  df = data.frame(vol.acid, ph)
-  df = df[df$vol.acid > 0 & df$vol.acid < 4 * veq1, ]
+  df = data.frame(volume, ph)
+  df = df[df$volume > 0 & df$volume < 4 * veq1, ]
   rownames(df) = 1:nrow(df)
   if (overlay == FALSE) {
-    plot(df$vol.acid, df$ph, type = "l", lwd = 2,
+    plot(df$volume, df$ph, type = "l", lwd = 2,
          xlim = c(0, 1.5 * (2 * veq1)), ylim = c(0, pkw), 
          xlab = "volume of strong acid (mL)",
        ylab = "pH", xaxs = "i", yaxs = "i", ...)
   } else {
-    lines(df$vol.acid, df$ph, type = "l", lwd = 2, ...)
+    lines(df$volume, df$ph, type = "l", lwd = 2, ...)
   }
   if (eqpt == TRUE){
     x1 = c(veq1, veq1)

@@ -14,18 +14,18 @@ wamix_sb = function(conc.acid1 = 0.1, conc.acid2 = 0.1,
   delta = h - oh
   alpha1 = ka1/(ka1 + h)
   alpha2 = ka2/(ka2 + h)
-  vol.base = vol.acid * 
+  volume = vol.acid * 
     (conc.acid1 * alpha1 + conc.acid2 * alpha2 - delta)/(conc.base + delta)
-  df = data.frame(vol.base, ph)
-  df = df[df$vol.base > 0 & df$vol.base < 2 * (veq1 + veq2), ]
+  df = data.frame(volume, ph)
+  df = df[df$volume > 0 & df$volume < 2 * (veq1 + veq2), ]
   rownames(df) = 1:nrow(df)
   if (overlay == FALSE){
-    plot(df$vol.base, df$ph, type = "l", lwd = 2, 
+    plot(df$volume, df$ph, type = "l", lwd = 2, 
          xlim = c(0, 1.5 * (veq1 + veq2)), ylim = c(0, pkw), 
          xlab = "volume of strong base (mL)", ylab = "pH",
          xaxs = "i", yaxs = "i", ...)
   }else{
-    lines(df$vol.base, df$ph, type = "l", lwd = 2, ...)
+    lines(df$volume, df$ph, type = "l", lwd = 2, ...)
   }
   if (eqpt == TRUE) {
     x1 = c(veq1, veq1)
