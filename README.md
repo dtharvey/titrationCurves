@@ -2,7 +2,8 @@
 
 Gathered here are functions for generating and plotting normal 
 titration curves using R, including acid-base titrations, complexation
-titrations, redox titrations, and precipitation titrations.
+titrations, redox titrations, and precipitation titrations. See the
+READMe.pdf file for a more detailed description.
 
 ## Acid-Base Titrations
 
@@ -48,5 +49,11 @@ coming soon...
 ## Precipitation Titrations
 
 coming soon...
+
+## Derivative Titration Curves
+
+The function `derivative` is used to calculate and plot the first derivative
+and the second derivative titration curves using data returned by the
+titration functions described above.
 
 
