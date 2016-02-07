@@ -11,9 +11,12 @@ triwa_sb = function(conc.acid = 0.1, conc.base = 0.1, pka1 = 4,
   h = 10^-ph
   oh = kw/h
   delta = h - oh
-  alpha1 = (ka1 * h^2)/(ka1 * ka2 * ka3 + ka1 * ka2 * h + ka1 * h^2 + h^3)
-  alpha2 = (ka1 * ka2 * h)/(ka1 * ka2 * ka3 + ka1 * ka2 * h + ka1 * h^2 + h^3)
-  alpha3 = (ka1 * ka2 * ka3)/(ka1 * ka2 * ka3 + ka1 * ka2 * h + ka1 * h^2 + h^3)
+  alpha1 = (ka1 * h^2)/
+    (ka1 * ka2 * ka3 + ka1 * ka2 * h + ka1 * h^2 + h^3)
+  alpha2 = (ka1 * ka2 * h)/
+    (ka1 * ka2 * ka3 + ka1 * ka2 * h + ka1 * h^2 + h^3)
+  alpha3 = (ka1 * ka2 * ka3)/
+    (ka1 * ka2 * ka3 + ka1 * ka2 * h + ka1 * h^2 + h^3)
   volume = vol.acid * 
     (conc.acid * alpha1 + 2 * conc.acid * alpha2 + 3 * 
        conc.acid * alpha3 - delta)/(conc.base + delta)

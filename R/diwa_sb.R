@@ -13,7 +13,8 @@ diwa_sb = function(conc.acid = 0.1, conc.base = 0.1, pka1 = 5,
   alpha1 = (ka1 * h)/(ka1 * ka2 + ka1 * h + h^2)
   alpha2 = (ka1 * ka2)/(ka1 * ka2 + ka1 * h + h^2)
   volume = vol.acid * 
-    (conc.acid * alpha1 + 2 * conc.acid * alpha2 - delta)/(conc.base + delta)
+    (conc.acid * alpha1 + 2 * conc.acid * alpha2 - delta)/
+    (conc.base + delta)
   df = data.frame(volume, ph)
   df = df[df$volume > 0 & df$volume < 4 * veq1, ]
   rownames(df) = 1:nrow(df)

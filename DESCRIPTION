@@ -1,0 +1,16 @@
+Package: titrationCurves
+Type: Package
+Title: Acid/Base, Complexation, Redox, and Precipitation Titration Curves
+Version: 0.0.0.9000
+Date: 2016-01-12
+Authors@R: person("David","Harvey", email = "harvey@depauw.edu", role = c("aut", "cre"))
+Maintainer: David Harvey <harvey@depauw.edu>
+Description: A collection of functions to plot acid/base titrations (pH vs.
+    volume of titrant), complexation titrations (pMetal vs. volume of EDTA),
+    redox titrations (potential vs.volume of titrant), and precipitation
+    titrations (pAnalyte or pTitrant vs. volume of titrant). Options include the
+    titration of mixtures, the ability to overlay two or more titration curves,
+    and the ability to show equivalence points.
+License: GPL-2
+LazyData: TRUE
+RoxygenNote: 5.0.1

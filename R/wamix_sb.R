@@ -15,7 +15,8 @@ wamix_sb = function(conc.acid1 = 0.1, conc.acid2 = 0.1,
   alpha1 = ka1/(ka1 + h)
   alpha2 = ka2/(ka2 + h)
   volume = vol.acid * 
-    (conc.acid1 * alpha1 + conc.acid2 * alpha2 - delta)/(conc.base + delta)
+    (conc.acid1 * alpha1 + conc.acid2 * alpha2 - delta)/
+    (conc.base + delta)
   df = data.frame(volume, ph)
   df = df[df$volume > 0 & df$volume < 2 * (veq1 + veq2), ]
   rownames(df) = 1:nrow(df)

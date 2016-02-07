@@ -1,7 +1,8 @@
 # titration of two monoprotic weak base with strong acid
 wbmix_sa = function(conc.base1 = 0.1, conc.base2 = 0.1, 
                     conc.acid = 0.1, pka1 = 6, pka2 = 9, pkw = 14, 
-                    vol.base = 50, eqpt = FALSE, overlay = FALSE, ...) {
+                    vol.base = 50, eqpt = FALSE, 
+                    overlay = FALSE, ...) {
   veq1 = conc.base1 * vol.base/conc.acid
   veq2 = conc.base2 * vol.base/conc.acid
   ka1 = 10^-pka1
@@ -14,7 +15,8 @@ wbmix_sa = function(conc.base1 = 0.1, conc.base2 = 0.1,
   alpha1 = h/(ka1 + h)
   alpha2 = h/(ka2 + h)
   volume = vol.base * 
-    (conc.base1 * alpha1 + conc.base2 * alpha2 + delta)/(conc.acid - delta)
+    (conc.base1 * alpha1 + conc.base2 * alpha2 + delta)/
+    (conc.acid - delta)
   df = data.frame(volume, ph)
   df = df[df$volume > 0 & df$volume < 2 * (veq1 + veq2), ]
   rownames(df) = 1:nrow(df)
