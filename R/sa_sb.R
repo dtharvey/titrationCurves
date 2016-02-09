@@ -1,4 +1,53 @@
-# titration of a monoprotic strong acid with a monoprotic strong base
+#' Titration Curve for a Strong Acid
+#' 
+#' This function calculates and plots the titration curve for a 
+#' monoprotic strong acid analyte using a monoprotic strong base as 
+#' the titrant. The calculation uses a single master equation
+#' that finds the volume of titrant needed to achieve a fixed pH, 
+#' as outlined in R. de Levie's \emph{Principles of Quantitative 
+#' Chemical Analysis} (McGraw-Hill, 1997).
+#' 
+#' @param conc.acid Molar concentration of the strong acid analyte;
+#' defaults to 0.10 M.
+#' 
+#' @param  conc.base Molar concentration of the strong base titrant;
+#' defaults to 0.10 M.
+#' 
+#' @param pkw The pKw (or pKs) value for the solvent; defaults to water
+#' as a solvent with a pKw of 14.
+#' 
+#' @param vol.acid Initial volume, in mL, of the solution that 
+#' contains the strong acid analyte; defaults to 50.00 mL.
+#' 
+#' @param eqpt Logical; if TRUE, draws a vertical line at the titration
+#' curve's equivalence point.
+#' 
+#' @param overlay Logical; if TRUE, adds the current titration curve
+#' to the existing titration curve.
+#' 
+#' @param \dots Additional arguments to pass to \code{plot()} function.
+#' 
+#' @return A two-column data frame that contains the volume of titrant
+#' in the first column and the solution's pH in the second column. Also
+#' produces a plot of the titration curve with options to display the
+#' equivalence point and to overlay titration curves.
+#' 
+#' @author David T. Harvey, DePauw University. \email{harvey@@depauw.edu}
+#' 
+#' @export
+#' 
+#' @importFrom graphics plot lines 
+#' 
+#' @examples
+#' ### Simple titration curve with equivalence point
+#' ex1 = sa_sb(eqpt = TRUE)
+#' head(ex1)
+#' 
+#' ### Overlay titration curves
+#' sa_sb(conc.base = 0.10)
+#' sa_sb(conc.base = 0.15, overlay = TRUE)
+#' sa_sb(conc.base = 0.20, overlay = TRUE)
+
 sa_sb = function(conc.acid = 0.1, conc.base = 0.1, pkw = 14, 
                  vol.acid = 50, eqpt = FALSE, overlay = FALSE, ...) {
   veq = conc.acid * vol.acid/conc.base

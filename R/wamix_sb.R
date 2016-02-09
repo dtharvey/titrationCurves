@@ -1,4 +1,62 @@
-# titration of two monoprotic weak acids with strong base
+#' Titration Curve for Weak Acid Mixture
+#' 
+#' This function calculates and plots the titration curve for a 
+#' mixture of two monoprotic weak acid analyte using a monoprotic 
+#' strong base as the titrant. The calculation uses a single master 
+#' equation that finds the volume of titrant needed to achieve a fixed 
+#' pH, as outlined in R. de Levie's \emph{Principles of Quantitative 
+#' Chemical Analysis} (McGraw-Hill, 1997).
+#' 
+#' @param conc.acid1 Molar concentration of the first monoprotic 
+#' weak acid analyte; defaults to 0.10 M.
+#' 
+#' @param conc.acid2 Molar concentration of the second monoprotic 
+#' weak acid analyte; defaults to 0.10 M.
+#' 
+#' @param  conc.base Molar concentration of the strong base titrant;
+#' defaults to 0.10 M.
+#' 
+#' @param pka1 The pKa value for the first monoprotic weak acid 
+#' analyte; defaults to a pKa of 5.
+#' 
+#' @param pka2 The pKa value for the second monoprotic weak acid 
+#' analyte; defaults to a pKa of 8.
+#' 
+#' @param pkw The pKw (or pKs) value for the solvent; defaults to water
+#' as a solvent with a pKw of 14.
+#' 
+#' @param vol.acid Initial volume, in mL, of the solution that 
+#' contains the weak acid analytes; defaults to 50.00 mL.
+#' 
+#' @param eqpt Logical; if TRUE, draws a vertical line at the titration
+#' curve's equivalence point.
+#' 
+#' @param overlay Logical; if TRUE, adds the current titration curve
+#' to the existing titration curve.
+#' 
+#' @param \dots Additional arguments to pass to \code{plot()} function.
+#' 
+#' @return A two-column data frame that contains the volume of titrant
+#' in the first column and the solution's pH in the second column. Also
+#' produces a plot of the titration curve with options to display the
+#' equivalence point and to overlay titration curves.
+#' 
+#' @author David T. Harvey, DePauw University. \email{harvey@@depauw.edu}
+#' 
+#' @export
+#' 
+#' @importFrom graphics plot lines 
+#' 
+#' @examples
+#' ### Simple titration curve with equivalence points
+#' ex9 = wamix_sb(eqpt = TRUE)
+#' head(ex9)
+#' 
+#' ### Overlay titration curves using different pKa values
+#' wamix_sb(pka1 = 5, pka2 = 8, eqpt = TRUE)
+#' wamix_sb(pka1 = 4, pka2 = 7, overlay = TRUE)
+#' wamix_sb(pka1 = 6, pka2 = 9, overlay = TRUE)
+
 wamix_sb = function(conc.acid1 = 0.1, conc.acid2 = 0.1, 
                     conc.base = 0.1, pka1 = 5, pka2 = 8, pkw = 14, 
                     vol.acid = 50, eqpt = FALSE, 

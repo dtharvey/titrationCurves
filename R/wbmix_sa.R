@@ -1,4 +1,64 @@
-# titration of two monoprotic weak base with strong acid
+#' Titration Curve for Weak Base Mixture
+#' 
+#' This function calculates and plots the titration curve for a 
+#' mixture of two monoprotic weak base using a monoprotic 
+#' strong acid as the titrant. The calculation uses a single master 
+#' equation that finds the volume of titrant needed to achieve a fixed 
+#' pH, as outlined in R. de Levie's \emph{Principles of Quantitative 
+#' Chemical Analysis} (McGraw-Hill, 1997).
+#' 
+#' @param conc.base1 Molar concentration of the first monoprotic 
+#' weak base analyte; defaults to 0.10 M.
+#' 
+#' @param conc.base2 Molar concentration of the second monoprotic 
+#' weak base analyte; defaults to 0.10 M.
+#' 
+#' @param  conc.acid Molar concentration of the strong acid titrant;
+#' defaults to 0.10 M.
+#' 
+#' @param pka1 The pKa value for the first monoprotic weak base 
+#' analyte's conjugate weak acid; defaults to a pKa of 6, or a pKb of
+#' 8.
+#' 
+#' @param pka2 The pKa value for the second monoprotic weak base 
+#' analyte's conjugate weak acid; defaults to a pKa of 9, or a pKb of
+#' 5.
+#' 
+#' @param pkw The pKw (or pKs) value for the solvent; defaults to water
+#' as a solvent with a pKw of 14.
+#' 
+#' @param vol.base Initial volume, in mL, of the solution that 
+#' contains the weak base; defaults to 50.00 mL.
+#' 
+#' @param eqpt Logical; if TRUE, draws a vertical line at the titration
+#' curve's equivalence point.
+#' 
+#' @param overlay Logical; if TRUE, adds the current titration curve
+#' to the existing titration curve.
+#' 
+#' @param \dots Additional arguments to pass to \code{plot()} function.
+#' 
+#' @return A two-column data frame that contains the volume of titrant
+#' in the first column and the solution's pH in the second column. Also
+#' produces a plot of the titration curve with options to display the
+#' equivalence point and to overlay titration curves.
+#' 
+#' @author David T. Harvey, DePauw University. \email{harvey@@depauw.edu}
+#' 
+#' @export
+#' 
+#' @importFrom graphics plot lines 
+#' 
+#' @examples
+#' ### Simple titration curve with equivalence points
+#' ex10 = wamix_sa(eqpt = TRUE)
+#' head(ex10)
+#' 
+#' ### Overlay titration curves using different pKa values
+#' wbmix_sa(pka1 = 5, pka2 = 8, eqpt = TRUE)
+#' wbmix_sa(pka1 = 4, pka2 = 7, overlay = TRUE)
+#' wbmix_sa(pka1 = 6, pka2 = 9, overlay = TRUE)
+
 wbmix_sa = function(conc.base1 = 0.1, conc.base2 = 0.1, 
                     conc.acid = 0.1, pka1 = 6, pka2 = 9, pkw = 14, 
                     vol.base = 50, eqpt = FALSE, 

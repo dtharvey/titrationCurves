@@ -1,5 +1,37 @@
-# plots derivative titration curves using two-column data frame 
-# returned by other titration functions
+#' Derivative Titration Curves
+#' 
+#' Given a two-column data frame, with volumes of titrant in the first
+#' column and pH, pAnalyte, pTitrant, pMetal, or solution potential in 
+#' the second column, this function calculates and plots the associated
+#' first-derivative and second derivative titration curves.
+#' 
+#' @param df A data frame with two columns; the first column must
+#' contain the volumes of titrant and the second column must contain
+#' values for the associated pH, pAnalyte, pTitrant, pMetal, or 
+#' solution potential. A typical object to pass to this function is 
+#' that created by the other functions in this package; however, the 
+#' data frame can be one prepared separately, provided that it matches 
+#' the structure defined above.
+#'  
+#' @param \dots Additional arguments to pass to \code{plot()} function.
+#' 
+#' @return A list that consists of two data frames, one for the first
+#' derivative titration curve and one for the second derivative 
+#' titration curve.
+#' 
+#' @author David T. Harvey, DePauw University. \email{harvey@@depauw.edu}
+#' 
+#' @export
+#' 
+#' @importFrom graphics plot lines 
+#' 
+#' @examples
+#' ### Derivative weak acid/strong base titration curves
+#' ab = wa_sb()
+#' ex16 = derivative(ab)
+#' str(ex16)
+
+
 derivative = function(df, ...) {
   n = length(df[ , 1])
   x = df[ , 1]

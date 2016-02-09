@@ -1,4 +1,59 @@
-# titration of diprotic weak acid with strong base
+#' Titration Curve for Diprotic Weak Acid
+#' 
+#' This function calculates and plots the titration curve for a 
+#' diprotic weak acid analyte using a monoprotic strong base as 
+#' the titrant. The calculation uses a single master equation
+#' that finds the volume of titrant needed to achieve a fixed pH, 
+#' as outlined in R. de Levie's \emph{Principles of Quantitative 
+#' Chemical Analysis} (McGraw-Hill, 1997).
+#' 
+#' @param conc.acid Molar concentration of the diprotic weak acid 
+#' analyte; defaults to 0.10 M.
+#' 
+#' @param  conc.base Molar concentration of the strong base titrant;
+#' defaults to 0.10 M.
+#' 
+#' @param pka1 The pKa1 value for the diprotic weak acid analyte; 
+#' defaults to a pKa1 of 5.
+#' 
+#' @param pka2 The pKa2 value for the diprotic weak acid analyte;
+#' defaults to a pKa2 of 9.
+#' 
+#' @param pkw The pKw (or pKs) value for the solvent; defaults to water
+#' as a solvent with a pKw of 14.
+#' 
+#' @param vol.acid Initial volume, in mL, of the solution that contains 
+#' the weak acid analyte; defaults to 50.00 mL.
+#' 
+#' @param eqpt Logical; if TRUE, draws a vertical line at the titration
+#' curve's equivalence point.
+#' 
+#' @param overlay Logical; if TRUE, adds the current titration curve
+#' to the existing titration curve.
+#' 
+#' @param \dots Additional arguments to pass to \code{plot()} function.
+#' 
+#' @return A two-column data frame that contains the volume of titrant
+#' in the first column and the solution's pH in the second column. Also
+#' produces a plot of the titration curve with options to display the
+#' equivalence point and to overlay titration curves.
+#' 
+#' @author David T. Harvey, DePauw University. \email{harvey@@depauw.edu}
+#' 
+#' @export
+#' 
+#' @importFrom graphics plot lines 
+#' 
+#' @examples
+#' ### Simple titration curve with equivalence points
+#' ex5 = diwa_sb(eqpt = TRUE)
+#' head(ex5)
+#' 
+#' ### Overlay titration curves using different pKa1 and pKa2 values
+#' diwa_sb(pka1 = 5, pka2 = 9, eqpt = TRUE)
+#' diwa_sb(pka1 = 6, pka2 = 10, overlay = TRUE)
+#' diwa_sb(pka1 = 4, pka2 = 8,  overlay = TRUE)
+
 diwa_sb = function(conc.acid = 0.1, conc.base = 0.1, pka1 = 5, 
                    pka2 = 9, pkw = 14, vol.acid = 50, eqpt = FALSE,
                    overlay = FALSE, ...) {

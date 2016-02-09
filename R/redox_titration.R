@@ -1,4 +1,62 @@
-# redox titration using an oxidizing agent as the titrant
+#' Redox Titration Curve
+#' 
+#' This function calculates and plots the titration curve for a 
+#' reducing agent analyte using an oxidizing agent as the titrant. 
+#' The calculation uses a single master equation that finds the volume 
+#' of titrant needed to achieve a fixed potential, as outlined in 
+#' R. de Levie's \emph{Principles of Quantitative Chemical Analysis} 
+#' (McGraw-Hill, 1997). 
+#' 
+#' @param conc.analyte Molar concentration of the analyte; defaults 
+#' to 0.010 M.
+#' 
+#' @param vol.analyte Initial volume, in mL, of the solution 
+#' containing the analyte; defaults to 25.00 mL.
+#' 
+#' @param pot.analyte Standard state or formal potential for the 
+#'analyte's half-reaction in V; defaults to 0.77 V.
+#' 
+#' @param elec.analyte The number, n, of electrons lost by the analyte 
+#' in its oxidation half-reaction; defaults to 1.
+#' 
+#' @param conc.titrant Molar concentration of the titrant; defaults 
+#' to 0.010 M.
+#' 
+#' @param pot.titrant Standard state or formal potential for the 
+#' titrant's half-reaction in V; defaults to 1.7 V.
+#' 
+#' @param elec.titrant The number, n, of electrons gained by the 
+#' analyte in its reduction half-reaction; defaults to 1.
+#' 
+#' @param eqpt Logical; if TRUE, draws a vertical line at the titration
+#' curve's equivalence point.
+#' 
+#' @param overlay Logical; if TRUE, adds the current titration curve
+#' to the existing titration curve.
+#' 
+#' @param \dots Additional arguments to pass to \code{plot()} function.
+#' 
+#' @return A two-column data frame that contains the volume of titrant
+#' in the first column and the solution's potential in the second column. 
+#' Also produces a plot of the titration curve with options to display 
+#' the equivalence point and to overlay titration curves.
+#' 
+#' @author David T. Harvey, DePauw University. \email{harvey@@depauw.edu}
+#' 
+#' @export
+#' 
+#' @importFrom graphics plot lines 
+#' 
+#' @examples
+#' ### Simple titration curve with equivalence point
+#' ex12 = redox_titration(eqpt = TRUE)
+#' head(ex12)
+#' 
+#' ### Overlay titration curves using different potentials for tirant
+#' redox_titration(pot.titrant = 1.7, eqpt = TRUE)
+#' redox_titration(pot.titrant = 1.5, overlay = TRUE)
+#' redox_titration(pot.titrant = 1.3, overlay = TRUE)
+
 redox_titration = function(conc.analyte = 0.01, vol.analyte = 25, 
                          pot.analyte = 0.77, elec.analyte = 1, 
                          conc.titrant = 0.01, pot.titrant = 1.7, 

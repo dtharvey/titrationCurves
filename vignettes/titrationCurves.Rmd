@@ -1,11 +1,16 @@
 ---
 title: "Functions for Generating and Plotting Titration Curves"
-author: "David Harvey"
-date: "February 8, 2016"
+author: "David T. Harvey"
+date: "`r Sys.Date()`"
 output: 
-  pdf_document:
+  rmarkdown::pdf_document:
     fig_height: 4
     fig_width: 5
+
+vignette: >
+  %\VignetteIndexEntry{Titration Curves}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 Gathered here are functions for generating and plotting normal, first derivative, and second derivative titration curves, including acid-base titrations, complexation titrations, redox titrations, and precipitation titrations. This document provides a basic introduction to the functions and worked examples.
