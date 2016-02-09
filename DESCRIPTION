@@ -1,8 +1,8 @@
 Package: titrationCurves
 Type: Package
 Title: Acid/Base, Complexation, Redox, and Precipitation Titration Curves
-Version: 0.0.0.9000
-Date: 2016-01-12
+Version: 0.1.0
+Date: 2016-02-09
 Authors@R: person("David","Harvey", email = "harvey@depauw.edu", role = c("aut", "cre"))
 Maintainer: David Harvey <harvey@depauw.edu>
 Description: A collection of functions to plot acid/base titration 

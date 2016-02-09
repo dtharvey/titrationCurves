@@ -55,7 +55,7 @@ wb_sa(pka = 9, eqpt = TRUE)
 wb_sa(pka = 7, overlay = TRUE)
 wb_sa(pka = 5, overlay = TRUE)
 
-### Overlay titration curve for strong acid and weak acid
+### Overlay titration curve for strong base and weak base
 sb_sa(eqpt = TRUE)
 wb_sa(overlay = TRUE)
 }
