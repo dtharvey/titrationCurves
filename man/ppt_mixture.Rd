@@ -12,10 +12,13 @@ ppt_mixture(conc.analyte1 = 0.05, conc.analyte2 = 0.05, vol.analyte = 25,
 \item{conc.analyte1}{Molar concentration of the first analyte; 
 defaults to 0.050 M.}
 
+\item{conc.analyte2}{Molar concentration of the second analyte; 
+defaults to 0.050 M.}
+
 \item{vol.analyte}{The initial olume, in mL, of the solution 
 containing the analyte; defaults to 25.00 mL.}
 
-\item{conc.titrant}{Molar concentration of the second titrant; 
+\item{conc.titrant}{Molar concentration of the titrant; 
 defaults to 0.050 M.}
 
 \item{pksp1}{The pKsp value for the first analyte's precipitate; 

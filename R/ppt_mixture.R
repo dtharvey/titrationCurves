@@ -11,7 +11,10 @@
 #' @param conc.analyte1 Molar concentration of the first analyte; 
 #' defaults to 0.050 M.
 #' 
-#' @param conc.titrant Molar concentration of the second titrant; 
+#' @param conc.analyte2 Molar concentration of the second analyte; 
+#' defaults to 0.050 M.
+#' 
+#' @param conc.titrant Molar concentration of the titrant; 
 #' defaults to 0.050 M. 
 #' 
 #' @param vol.analyte The initial olume, in mL, of the solution 

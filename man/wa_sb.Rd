@@ -57,7 +57,7 @@ wa_sb(pka = 9, overlay = TRUE)
 
 ### Overlay titration curve for strong acid and weak acid
 sa_sb(eqpt = TRUE)
-wa_wb(overlay = TRUE)
+wa_sb(overlay = TRUE)
 }
 \author{
 David T. Harvey, DePauw University. \email{harvey@depauw.edu}

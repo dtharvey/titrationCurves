@@ -46,14 +46,14 @@
 #' ex4 = wb_sa(eqpt = TRUE)
 #' head(ex4)
 #' 
-#' Overlay titration curves using different pKa values
+#' ### Overlay titration curves using different pKa values
 #' wb_sa(pka = 9, eqpt = TRUE)
 #' wb_sa(pka = 7, overlay = TRUE)
 #' wb_sa(pka = 5, overlay = TRUE)
 #' 
 #' ### Overlay titration curve for strong acid and weak acid
 #' sb_sa(eqpt = TRUE)
-#' wb_wa(overlay = TRUE)
+#' wb_sa(overlay = TRUE)
 
 wb_sa = function(conc.acid = 0.1, conc.base = 0.1, pka = 9, pkw = 14, 
                  vol.base = 50, eqpt = FALSE, overlay = FALSE, ...) {

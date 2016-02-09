@@ -51,7 +51,7 @@ head(ex14)
 ### Overlay titration curves using different pKsp values 
 ppt_titrant(pksp = 16, eqpt = TRUE)
 ppt_titrant(pksp = 14, overlay = TRUE)
-ppt_titran(pksp = 12, overlay = TRUE)
+ppt_titrant(pksp = 12, overlay = TRUE)
 }
 \author{
 David T. Harvey, DePauw University. \email{harvey@depauw.edu}

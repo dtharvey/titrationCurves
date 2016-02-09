@@ -56,7 +56,7 @@ Chemical Analysis} (McGraw-Hill, 1997).
 }
 \examples{
 ### Simple titration curve with equivalence points
-ex10 = wamix_sa(eqpt = TRUE)
+ex10 = wbmix_sa(eqpt = TRUE)
 head(ex10)
 
 ### Overlay titration curves using different pKa values

@@ -56,10 +56,6 @@
 #' metal_edta(ph = 12, eqpt = TRUE)
 #' metal_edta(ph = 10, overlay = TRUE)
 #' metal_edta(ph = 8, overlay = TRUE)
-#' 
-#' ### Overlay titration curve for strong acid and weak acid
-#' sa_sb(eqpt = TRUE)
-#' wa_wb(overlay = TRUE)
 
 metal_edta = function(conc.metal = 0.1, conc.edta = 0.1, 
                       vol.metal = 50, ph = 10, logkf = 8.79, 

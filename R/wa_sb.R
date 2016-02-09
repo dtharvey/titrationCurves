@@ -53,7 +53,7 @@
 #' 
 #' ### Overlay titration curve for strong acid and weak acid
 #' sa_sb(eqpt = TRUE)
-#' wa_wb(overlay = TRUE)
+#' wa_sb(overlay = TRUE)
 
 wa_sb = function(conc.acid = 0.1, conc.base = 0.1, pka = 5, pkw = 14, 
                  vol.acid = 50, eqpt = FALSE, overlay = FALSE, ...) {

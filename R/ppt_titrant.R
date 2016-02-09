@@ -47,7 +47,7 @@
 #' ### Overlay titration curves using different pKsp values 
 #' ppt_titrant(pksp = 16, eqpt = TRUE)
 #' ppt_titrant(pksp = 14, overlay = TRUE)
-#' ppt_titran(pksp = 12, overlay = TRUE)
+#' ppt_titrant(pksp = 12, overlay = TRUE)
 
 ppt_titrant = function(conc.analyte = 0.025, conc.titrant = 0.05, 
                        vol.analyte = 50, pksp = 16.08, eqpt = FALSE, 

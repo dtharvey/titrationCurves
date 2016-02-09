@@ -50,14 +50,14 @@ Chemical Analysis} (McGraw-Hill, 1997).
 ex4 = wb_sa(eqpt = TRUE)
 head(ex4)
 
-Overlay titration curves using different pKa values
+### Overlay titration curves using different pKa values
 wb_sa(pka = 9, eqpt = TRUE)
 wb_sa(pka = 7, overlay = TRUE)
 wb_sa(pka = 5, overlay = TRUE)
 
 ### Overlay titration curve for strong acid and weak acid
 sb_sa(eqpt = TRUE)
-wb_wa(overlay = TRUE)
+wb_sa(overlay = TRUE)
 }
 \author{
 David T. Harvey, DePauw University. \email{harvey@depauw.edu}

@@ -60,10 +60,6 @@ head(ex11)
 metal_edta(ph = 12, eqpt = TRUE)
 metal_edta(ph = 10, overlay = TRUE)
 metal_edta(ph = 8, overlay = TRUE)
-
-### Overlay titration curve for strong acid and weak acid
-sa_sb(eqpt = TRUE)
-wa_wb(overlay = TRUE)
 }
 \author{
 David T. Harvey, DePauw University. \email{harvey@depauw.edu}
