@@ -3,6 +3,7 @@
 ## test environments
 
 * local OS X (10.9.5) install, R 3.2.3
+* local OS X (10.9.5) install, current development version
 * win-builder (both release and development verions)
 
 ## R CMD check results
