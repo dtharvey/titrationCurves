@@ -19,6 +19,8 @@
 #' @param vol.acid Initial volume, in mL, of the solution that 
 #' contains the strong acid analyte; defaults to 50.00 mL.
 #' 
+#' @param plot Logical; if TRUE, plots the titration curve.
+#' 
 #' @param eqpt Logical; if TRUE, draws a vertical line at the titration
 #' curve's equivalence point.
 #' 
@@ -49,7 +51,8 @@
 #' sa_sb(conc.base = 0.20, overlay = TRUE)
 
 sa_sb = function(conc.acid = 0.1, conc.base = 0.1, pkw = 14, 
-                 vol.acid = 50, eqpt = FALSE, overlay = FALSE, ...) {
+                 vol.acid = 50, plot = TRUE, 
+                 eqpt = FALSE, overlay = FALSE, ...) {
   veq = conc.acid * vol.acid/conc.base
   kw = 10^-pkw
   ph = seq(1, pkw, 0.01)
@@ -60,6 +63,7 @@ sa_sb = function(conc.acid = 0.1, conc.base = 0.1, pkw = 14,
   df = data.frame(volume, ph)
   df = df[df$volume > 0 & df$volume < 2 * veq, ]
   rownames(df) = 1:nrow(df)
+  if (plot == TRUE) {
   if (overlay == FALSE) {
   plot(df$volume, df$ph, type = "l", lwd = 2, xlim =
          c(0, 1.5 * veq), ylim = c(0, pkw), 
@@ -72,6 +76,7 @@ sa_sb = function(conc.acid = 0.1, conc.base = 0.1, pkw = 14,
     x = c(veq, veq)
     y = c(0, pkw + 1)
     lines(x, y, type = "l", lty = 2, col = "red")
+  }
   }
   invisible(df)
 }

@@ -4,7 +4,7 @@
 \alias{derivative}
 \title{Derivative Titration Curves}
 \usage{
-derivative(df, ...)
+derivative(df, plot = TRUE, ...)
 }
 \arguments{
 \item{df}{A data frame with two columns; the first column must
@@ -14,6 +14,8 @@ solution potential. A typical object to pass to this function is
 that created by the other functions in this package; however, the 
 data frame can be one prepared separately, provided that it matches 
 the structure defined above.}
+
+\item{plot}{Logical; if TRUE, plots the titration curve.}
 
 \item{\dots}{Additional arguments to pass to \code{plot()} function.}
 }

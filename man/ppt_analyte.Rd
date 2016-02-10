@@ -5,7 +5,7 @@
 \title{Precipitation Titration Curve: Monitoring pAnalyte}
 \usage{
 ppt_analyte(conc.analyte = 0.025, conc.titrant = 0.05, vol.analyte = 50,
-  pksp = 16.08, eqpt = FALSE, overlay = FALSE, ...)
+  pksp = 16.08, plot = TRUE, eqpt = FALSE, overlay = FALSE, ...)
 }
 \arguments{
 \item{conc.analyte}{Molar concentration of the analyte; defaults to
@@ -19,6 +19,8 @@ containing the analyte; defaults to 50.00 mL.}
 
 \item{pksp}{The pKsp value for the precipitate; defaults to 16.08,
 which is the pKsp for AgI.}
+
+\item{plot}{Logical; if TRUE, plots the titration curve.}
 
 \item{eqpt}{Logical; if TRUE, draws a vertical line at the titration
 curve's equivalence point.}

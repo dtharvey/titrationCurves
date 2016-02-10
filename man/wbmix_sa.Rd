@@ -5,8 +5,8 @@
 \title{Titration Curve for Weak Base Mixture}
 \usage{
 wbmix_sa(conc.base1 = 0.1, conc.base2 = 0.1, conc.acid = 0.1, pka1 = 6,
-  pka2 = 9, pkw = 14, vol.base = 50, eqpt = FALSE, overlay = FALSE,
-  ...)
+  pka2 = 9, pkw = 14, vol.base = 50, plot = TRUE, eqpt = FALSE,
+  overlay = FALSE, ...)
 }
 \arguments{
 \item{conc.base1}{Molar concentration of the first monoprotic 
@@ -31,6 +31,8 @@ as a solvent with a pKw of 14.}
 
 \item{vol.base}{Initial volume, in mL, of the solution that 
 contains the weak base; defaults to 50.00 mL.}
+
+\item{plot}{Logical; if TRUE, plots the titration curve.}
 
 \item{eqpt}{Logical; if TRUE, draws a vertical line at the titration
 curve's equivalence point.}

@@ -20,6 +20,8 @@
 #' @param pksp The pKsp value for the precipitate; defaults to 16.08,
 #' which is the pKsp for AgI.
 #' 
+#' @param plot Logical; if TRUE, plots the titration curve.
+#' 
 #' @param eqpt Logical; if TRUE, draws a vertical line at the titration
 #' curve's equivalence point.
 #' 
@@ -50,8 +52,8 @@
 #' ppt_analyte(pksp = 12, overlay = TRUE)
 
 ppt_analyte = function(conc.analyte = 0.025, conc.titrant = 0.05, 
-                    vol.analyte = 50, pksp = 16.08, eqpt = FALSE, 
-                    overlay = FALSE, ...) {
+                    vol.analyte = 50, pksp = 16.08, plot = TRUE, 
+                    eqpt = FALSE, overlay = FALSE, ...) {
   veq = conc.analyte * vol.analyte/conc.titrant
   ksp = 10^-pksp
   p.analyte = seq(1, pksp, 0.01)
@@ -62,6 +64,7 @@ ppt_analyte = function(conc.analyte = 0.025, conc.titrant = 0.05,
   df = data.frame(volume, p.analyte)
   df = df[df$volume > 0 & df$volume < 2 * veq, ]
   rownames(df) = 1:nrow(df)
+  if (plot == TRUE) {
   if (overlay == FALSE) {
     plot(df$volume, df$p.analyte, type = "l", lwd = 2, 
          xlim = c(0, 1.5 * veq), ylim = c(0, pksp), 
@@ -76,6 +79,7 @@ ppt_analyte = function(conc.analyte = 0.025, conc.titrant = 0.05,
     x = c(veq, veq)
     y = c(-1, pksp + 1)
     lines(x, y, type = "l", lty = 2, col = "red")
+  }
   }
   invisible(df)
 }

@@ -25,6 +25,8 @@
 #' @param vol.acid Initial volume, in mL, of the solution that contains 
 #' the weak acid analyte; defaults to 50.00 mL.
 #' 
+#' @param plot Logical; if TRUE, plots the titration curve.
+#' 
 #' @param eqpt Logical; if TRUE, draws a vertical line at the titration
 #' curve's equivalence point.
 #' 
@@ -55,8 +57,8 @@
 #' diwa_sb(pka1 = 4, pka2 = 8,  overlay = TRUE)
 
 diwa_sb = function(conc.acid = 0.1, conc.base = 0.1, pka1 = 5, 
-                   pka2 = 9, pkw = 14, vol.acid = 50, eqpt = FALSE,
-                   overlay = FALSE, ...) {
+                   pka2 = 9, pkw = 14, vol.acid = 50, plot = TRUE,
+                   eqpt = FALSE, overlay = FALSE, ...) {
   veq1 = conc.acid * vol.acid/conc.base
   ka1 = 10^-pka1
   ka2 = 10^-pka2
@@ -73,9 +75,11 @@ diwa_sb = function(conc.acid = 0.1, conc.base = 0.1, pka1 = 5,
   df = data.frame(volume, ph)
   df = df[df$volume > 0 & df$volume < 4 * veq1, ]
   rownames(df) = 1:nrow(df)
+  if (plot == TRUE) {
   if (overlay == FALSE) {
     plot(df$volume, df$ph, type = "l", lwd = 2, 
-         xlim = c(0, 1.5 * (2 * veq1)), ylim = c(0, pkw), 
+         xlim = c(0, 1.5 * (2 * veq1)),
+         ylim = c(0, pkw), 
          xlab = "volume of strong base (mL)",
        ylab = "pH", xaxs = "i", yaxs = "i", ...)
   } else {
@@ -87,6 +91,7 @@ diwa_sb = function(conc.acid = 0.1, conc.base = 0.1, pka1 = 5,
     y = c(0, pkw + 1)
     lines(x1, y, type = "l", lty = 2, col = "red")
     lines(x2, y, type = "l", lty = 2, col = "red")
+  }
   }
   invisible(df)
 }

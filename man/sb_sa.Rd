@@ -5,7 +5,7 @@
 \title{Titration Curve for a Strong Base}
 \usage{
 sb_sa(conc.base = 0.1, conc.acid = 0.1, pkw = 14, vol.base = 50,
-  overlay = FALSE, eqpt = FALSE, ...)
+  plot = TRUE, overlay = FALSE, eqpt = FALSE, ...)
 }
 \arguments{
 \item{conc.base}{Molar concentration of the strong base analyte;
@@ -19,6 +19,8 @@ as a solvent with a pKw of 14.}
 
 \item{vol.base}{Initial volume, in mL, of the solution that 
 contains the strong base analyte; defaults to 50.00 mL.}
+
+\item{plot}{Logical; if TRUE, plots the titration curve.}
 
 \item{overlay}{Logical; if TRUE, adds the current titration curve
 to the existing titration curve.}

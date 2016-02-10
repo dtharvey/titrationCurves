@@ -43,10 +43,10 @@ The function's arguments, each of which has a default value, are intuitive; a re
 
 ```
 wb_sa = function(conc.acid = 0.1, conc.base = 0.1, pka = 9, pkw = 14, 
-  vol.base = 50, eqpt = FALSE, overlay = FALSE, ...)
+  vol.base = 50, plot = TRUE, eqpt = FALSE, overlay = FALSE, ...)
 ```
 
-Note that the equilibrium constant for a weak base is provided using the $\textrm{p}{ K }_{ a }$ value for the base's conjugate weak acid, and that you can adjust  $\textrm{p}{ K }_{ w }$ when using a solvent other than water. The option `eqpt` adds a vertical line at the equivalence point and the option `overlay` allows for displaying two or more titration curves on the same plot. The plot's axes are fixed to display the pH from 0 to 14 and to display the volume of titrant from 0 to 1.5$\times$ the titration curve's final equivalence point; however, you can pass other plot options, such as color and a main title.  
+Note that the equilibrium constant for a weak base is provided using the $\textrm{p}{ K }_{ a }$ value for the base's conjugate weak acid, and that you can adjust  $\textrm{p}{ K }_{ w }$ when using a solvent other than water. The option `plot` creates a plot of the titration curve with axes fixed to display the pH from 0 to 14 and to display the volume of titrant from 0 to 1.5$\times$ the titration curve's final equivalence point. The option `eqpt` adds a vertical line at the equivalence point and the option `overlay` allows for displaying two or more titration curves on the same plot; you can pass other plot options, such as color and a main title.  
 
 ```{r, echo=FALSE}
 source('~/Box Sync/Sabbatical 2015-16/R-Project/titrationCurves/R/wb_sa.R')

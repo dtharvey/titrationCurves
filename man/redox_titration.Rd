@@ -6,7 +6,7 @@
 \usage{
 redox_titration(conc.analyte = 0.01, vol.analyte = 25, pot.analyte = 0.77,
   elec.analyte = 1, conc.titrant = 0.01, pot.titrant = 1.7,
-  elec.titrant = 1, eqpt = FALSE, overlay = FALSE, ...)
+  elec.titrant = 1, plot = TRUE, eqpt = FALSE, overlay = FALSE, ...)
 }
 \arguments{
 \item{conc.analyte}{Molar concentration of the analyte; defaults 
@@ -29,6 +29,8 @@ titrant's half-reaction in V; defaults to 1.7 V.}
 
 \item{elec.titrant}{The number, n, of electrons gained by the 
 analyte in its reduction half-reaction; defaults to 1.}
+
+\item{plot}{Logical; if TRUE, plots the titration curve.}
 
 \item{eqpt}{Logical; if TRUE, draws a vertical line at the titration
 curve's equivalence point.}

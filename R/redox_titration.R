@@ -28,6 +28,8 @@
 #' @param elec.titrant The number, n, of electrons gained by the 
 #' analyte in its reduction half-reaction; defaults to 1.
 #' 
+#' @param plot Logical; if TRUE, plots the titration curve.
+#' 
 #' @param eqpt Logical; if TRUE, draws a vertical line at the titration
 #' curve's equivalence point.
 #' 
@@ -60,7 +62,7 @@
 redox_titration = function(conc.analyte = 0.01, vol.analyte = 25, 
                          pot.analyte = 0.77, elec.analyte = 1, 
                          conc.titrant = 0.01, pot.titrant = 1.7, 
-                         elec.titrant = 1, eqpt = FALSE,
+                         elec.titrant = 1, plot = TRUE, eqpt = FALSE,
                          overlay = FALSE, ...) {
   veq = (elec.analyte * conc.analyte * vol.analyte)/
     (elec.titrant * conc.titrant)
@@ -78,6 +80,7 @@ redox_titration = function(conc.analyte = 0.01, vol.analyte = 25,
   df = data.frame(volume, potential)
   df = df[df$volume > 0.1 & df$volume < 2 * veq, ]
   rownames(df) = 1:nrow(df)
+  if (plot == TRUE) {
   if (overlay == FALSE) {
     plot(df$volume, df$potential, type = "l", lwd = 2,
          xlim = c(0, 1.5 * veq), 
@@ -91,6 +94,7 @@ redox_titration = function(conc.analyte = 0.01, vol.analyte = 25,
     x = c(veq, veq)
     y = c(-3, 3)
     lines(x, y, type = "l", lty = 2, col = "red")
+  }
   }
   invisible(df)
 }

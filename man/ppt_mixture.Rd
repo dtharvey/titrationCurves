@@ -5,8 +5,8 @@
 \title{Precipitation Titration Curve: Mixture of Analytes}
 \usage{
 ppt_mixture(conc.analyte1 = 0.05, conc.analyte2 = 0.05, vol.analyte = 25,
-  conc.titrant = 0.05, pksp1 = 16.08, pksp2 = 11.97, eqpt = FALSE,
-  overlay = FALSE, ...)
+  conc.titrant = 0.05, pksp1 = 16.08, pksp2 = 11.97, plot = TRUE,
+  eqpt = FALSE, overlay = FALSE, ...)
 }
 \arguments{
 \item{conc.analyte1}{Molar concentration of the first analyte; 
@@ -26,6 +26,8 @@ defaults to 16.08, which is the pKsp for AgI.}
 
 \item{pksp2}{The pKsp value for the second analyte's precipitate; 
 defaults to 11.97, which is the pKsp for AgSCN.}
+
+\item{plot}{Logical; if TRUE, plots the titration curve.}
 
 \item{eqpt}{Logical; if TRUE, draws a vertical line at the titration
 curve's equivalence point.}

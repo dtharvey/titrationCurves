@@ -26,6 +26,8 @@
 #' @param pksp2 The pKsp value for the second analyte's precipitate; 
 #' defaults to 11.97, which is the pKsp for AgSCN.
 #' 
+#' @param plot Logical; if TRUE, plots the titration curve.
+#' 
 #' @param eqpt Logical; if TRUE, draws a vertical line at the titration
 #' curve's equivalence point.
 #' 
@@ -56,7 +58,7 @@
 
 ppt_mixture = function(conc.analyte1 = 0.05, conc.analyte2 = 0.05, 
                        vol.analyte = 25, conc.titrant = 0.05, 
-                       pksp1 = 16.08, pksp2 = 11.97,
+                       pksp1 = 16.08, pksp2 = 11.97, plot = TRUE,
                        eqpt = FALSE, overlay = FALSE, ...) {
   veq1 = conc.analyte1 * vol.analyte/conc.titrant
   veq2 = conc.analyte2 * vol.analyte/conc.titrant
@@ -78,6 +80,7 @@ ppt_mixture = function(conc.analyte1 = 0.05, conc.analyte2 = 0.05,
   df = data.frame(volume, p.titrant)
   df = df[df$volume > 0 & df$volume < 2 * veq, ]
   rownames(df) = 1:nrow(df)
+  if (plot == TRUE) {
   if (overlay == FALSE) {
     plot(df$volume, df$p.titrant, type = "l", lwd = 2, 
          xlim = c(0, 1.5 * veq), ylim = c(0, y.lim), 
@@ -92,6 +95,7 @@ ppt_mixture = function(conc.analyte1 = 0.05, conc.analyte2 = 0.05,
     y = c(-1, y.lim + 1)
     lines(x1, y, type = "l", lty = 2, col = "red")
     lines(x2, y, type = "l", lty = 2, col = "red")
+  }
   }
   invisible(df)
 }

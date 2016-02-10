@@ -22,6 +22,8 @@
 #' @param vol.base Initial volume, in mL, of the solution that 
 #' contains the weak base analyte; defaults to 50.00 mL.
 #' 
+#' @param plot Logical; if TRUE, plots the titration curve.
+#' 
 #' @param eqpt Logical; if TRUE, draws a vertical line at the titration
 #' curve's equivalence point.
 #' 
@@ -56,7 +58,8 @@
 #' wb_sa(overlay = TRUE)
 
 wb_sa = function(conc.acid = 0.1, conc.base = 0.1, pka = 9, pkw = 14, 
-                 vol.base = 50, eqpt = FALSE, overlay = FALSE, ...) {
+                 vol.base = 50, plot = TRUE,
+                 eqpt = FALSE, overlay = FALSE, ...) {
   veq = conc.base * vol.base/conc.acid
   ka = 10^-pka
   kw = 10^-pkw
@@ -69,6 +72,7 @@ wb_sa = function(conc.acid = 0.1, conc.base = 0.1, pka = 9, pkw = 14,
   df = data.frame(volume, ph)
   df = df[df$volume > 0 & df$volume < 2 * veq, ]
   rownames(df) = 1:nrow(df)
+  if (plot == TRUE) {
   if (overlay == FALSE) {
     plot(df$volume, df$ph, type = "l", lwd = 2,
          xlim = c(0, 1.5 * veq), ylim = c(0, pkw), 
@@ -81,6 +85,7 @@ wb_sa = function(conc.acid = 0.1, conc.base = 0.1, pka = 9, pkw = 14,
     x = c(veq, veq)
     y = c(0, pkw + 1)
     lines(x, y, type = "l", lty = 2, col = "red")
+  }
   }
   invisible(df)
 }

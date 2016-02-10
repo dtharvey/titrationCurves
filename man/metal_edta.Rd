@@ -5,7 +5,8 @@
 \title{Complexation Titration Curve}
 \usage{
 metal_edta(conc.metal = 0.1, conc.edta = 0.1, vol.metal = 50, ph = 10,
-  logkf = 8.79, alpha.metal = 1, eqpt = TRUE, overlay = FALSE, ...)
+  logkf = 8.79, alpha.metal = 1, plot = TRUE, eqpt = TRUE,
+  overlay = FALSE, ...)
 }
 \arguments{
 \item{conc.metal}{Molar concentration of the metal ion analyte;
@@ -28,6 +29,8 @@ Mg2+ and EDTA.}
 \item{alpha.metal}{The fraction of the metal ion analyte that is not
 complexed by an auxilary complexing agent; defaults to 1, the value
 when there is no secondary complexing agent present.}
+
+\item{plot}{Logical; if TRUE, plots the titration curve.}
 
 \item{eqpt}{Logical; if TRUE, draws a vertical line at the titration
 curve's equivalence point.}

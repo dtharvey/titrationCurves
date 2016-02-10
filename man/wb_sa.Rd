@@ -5,7 +5,7 @@
 \title{Titration Curve for a Weak Base}
 \usage{
 wb_sa(conc.acid = 0.1, conc.base = 0.1, pka = 9, pkw = 14,
-  vol.base = 50, eqpt = FALSE, overlay = FALSE, ...)
+  vol.base = 50, plot = TRUE, eqpt = FALSE, overlay = FALSE, ...)
 }
 \arguments{
 \item{conc.acid}{Molar concentration of the strong acid titrant;
@@ -22,6 +22,8 @@ as a solvent with a pKw of 14.}
 
 \item{vol.base}{Initial volume, in mL, of the solution that 
 contains the weak base analyte; defaults to 50.00 mL.}
+
+\item{plot}{Logical; if TRUE, plots the titration curve.}
 
 \item{eqpt}{Logical; if TRUE, draws a vertical line at the titration
 curve's equivalence point.}

@@ -28,6 +28,8 @@
 #' complexed by an auxilary complexing agent; defaults to 1, the value
 #' when there is no secondary complexing agent present.
 #' 
+#' @param plot Logical; if TRUE, plots the titration curve.
+#' 
 #' @param eqpt Logical; if TRUE, draws a vertical line at the titration
 #' curve's equivalence point.
 #' 
@@ -59,7 +61,7 @@
 
 metal_edta = function(conc.metal = 0.1, conc.edta = 0.1, 
                       vol.metal = 50, ph = 10, logkf = 8.79, 
-                      alpha.metal = 1, eqpt = TRUE, 
+                      alpha.metal = 1, plot = TRUE, eqpt = TRUE, 
                       overlay = FALSE, ...) {
   ka1 = 1
   ka2 = 0.032
@@ -88,6 +90,7 @@ metal_edta = function(conc.metal = 0.1, conc.edta = 0.1,
   df = data.frame(volume, p.metal)
   df = df[df$volume > 0 & df$volume < 2 * veq, ]
   rownames(df) = 1:nrow(df)
+  if (plot == TRUE) {
   if (overlay == FALSE) {
     plot(df$volume, df$p.metal, type = "l", lwd = 2, 
          xlim = c(0, 1.5 * veq), ylim = c(0, logkf + 2), 
@@ -100,6 +103,7 @@ metal_edta = function(conc.metal = 0.1, conc.edta = 0.1,
     x = c(veq, veq)
    y = c(-1, logkf + 3)
     lines(x, y, type = "l", lty = 2, col = "red")
+  }
   }
   invisible(df)
 }

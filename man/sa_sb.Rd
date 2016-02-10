@@ -5,7 +5,7 @@
 \title{Titration Curve for a Strong Acid}
 \usage{
 sa_sb(conc.acid = 0.1, conc.base = 0.1, pkw = 14, vol.acid = 50,
-  eqpt = FALSE, overlay = FALSE, ...)
+  plot = TRUE, eqpt = FALSE, overlay = FALSE, ...)
 }
 \arguments{
 \item{conc.acid}{Molar concentration of the strong acid analyte;
@@ -19,6 +19,8 @@ as a solvent with a pKw of 14.}
 
 \item{vol.acid}{Initial volume, in mL, of the solution that 
 contains the strong acid analyte; defaults to 50.00 mL.}
+
+\item{plot}{Logical; if TRUE, plots the titration curve.}
 
 \item{eqpt}{Logical; if TRUE, draws a vertical line at the titration
 curve's equivalence point.}

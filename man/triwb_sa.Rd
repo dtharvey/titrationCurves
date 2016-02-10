@@ -5,8 +5,8 @@
 \title{Titration Curve for a Triprotic Weak Base}
 \usage{
 triwb_sa(conc.base = 0.1, conc.acid = 0.1, pka1 = 4, pka2 = 7,
-  pka3 = 10, pkw = 14, vol.base = 50, eqpt = FALSE, overlay = FALSE,
-  ...)
+  pka3 = 10, pkw = 14, vol.base = 50, plot = TRUE, eqpt = FALSE,
+  overlay = FALSE, ...)
 }
 \arguments{
 \item{conc.base}{Molar concentration of the triprotic weak base
@@ -29,6 +29,8 @@ as a solvent with a pKw of 14.}
 
 \item{vol.base}{The iniital volume, in mL, of the solution that 
 contains the weak acid analyte; defaults to 50.00 mL.}
+
+\item{plot}{Logical; if TRUE, plots the titration curve.}
 
 \item{eqpt}{Logical; if TRUE, draws a vertical line at the titration
 curve's equivalence point.}

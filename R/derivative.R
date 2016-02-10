@@ -12,6 +12,8 @@
 #' that created by the other functions in this package; however, the 
 #' data frame can be one prepared separately, provided that it matches 
 #' the structure defined above.
+#' 
+#' @param plot Logical; if TRUE, plots the titration curve.
 #'  
 #' @param \dots Additional arguments to pass to \code{plot()} function.
 #' 
@@ -32,7 +34,7 @@
 #' str(ex16)
 
 
-derivative = function(df, ...) {
+derivative = function(df, plot = TRUE, ...) {
   n = length(df[ , 1])
   x = df[ , 1]
   y = df[ , 2]
@@ -48,6 +50,7 @@ derivative = function(df, ...) {
     x2[j] = (x1[j] + x1[j+1])/2
     y2[j] = (y1[j+1] - y1[j])/(x1[j+1] - x1[j])
   }
+  if (plot == TRUE) {
   opt = par(mfrow = c(1,2))
   plot(x1, y1, type = "l", col = "blue", lwd = 2, 
        xlab = "volume of titrant (mL)", ylab = "first derivative",
@@ -56,6 +59,7 @@ derivative = function(df, ...) {
        xlab = "volume of titrant (mL)", ylab = "second derivative", 
        xaxs = "i",  ...)
   par(opt)
+  }
   df.f = data.frame(x1,y1)
   df.s = data.frame(x2,y2)
   obj.ret = list("first_deriv" =df.f,"second_deriv"=df.s)
