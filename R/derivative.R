@@ -25,7 +25,7 @@
 #' 
 #' @export
 #' 
-#' @importFrom graphics plot lines 
+#' @importFrom graphics plot lines par
 #' 
 #' @examples
 #' ### Derivative weak acid/strong base titration curves
