@@ -50,9 +50,9 @@ ex2 = sb_sa(eqpt = TRUE)
 head(ex2)
 
 ### Overlay titration curves
-sb_sa(conc.base = 0.10)
-sb_sa(conc.base = 0.15, overlay = TRUE)
-sb_sa(conc.base = 0.20, overlay = TRUE)
+sb_sa(conc.acid = 0.10)
+sb_sa(conc.acid = 0.15, overlay = TRUE)
+sb_sa(conc.acid = 0.20, overlay = TRUE)
 }
 \author{
 David T. Harvey, DePauw University. \email{harvey@depauw.edu}

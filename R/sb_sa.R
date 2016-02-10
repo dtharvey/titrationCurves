@@ -46,9 +46,9 @@
 #' head(ex2)
 #' 
 #' ### Overlay titration curves
-#' sb_sa(conc.base = 0.10)
-#' sb_sa(conc.base = 0.15, overlay = TRUE)
-#' sb_sa(conc.base = 0.20, overlay = TRUE)
+#' sb_sa(conc.acid = 0.10)
+#' sb_sa(conc.acid = 0.15, overlay = TRUE)
+#' sb_sa(conc.acid = 0.20, overlay = TRUE)
 
 sb_sa = function(conc.base = 0.1, conc.acid = 0.1, pkw = 14, 
                  vol.base = 50, plot = TRUE,
